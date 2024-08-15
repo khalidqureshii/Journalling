@@ -57,6 +57,9 @@ function Login() {
         <InputEntry changeFunction={updateUser} name="email" text="Email: " placeholder="Enter Your Email" />
         <InputEntry changeFunction={updateUser} name="password" text="Password: " placeholder="Enter Your Password" />
         <button type="submit" onClick={storeData}>Submit</button>
+
+        <h2>Don't have an Account?</h2>
+        <button onClick={()=>navigate("/register")}>Register</button>
         </>)}
     </>
 }   

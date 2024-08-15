@@ -62,6 +62,9 @@ function Register() {
         <InputEntry changeFunction={updateUser} name="confirmPassword" text="Confirm Password: " placeholder="Re-Enter Your Password" value={user.confirmPassword} />
         <button type="submit" onClick={storeData}>Submit</button>
         {(!user.match) ? <h3>Passwords Do Not Match</h3> : null}
+
+        <h2 className="text-2xl">Already have an Account?</h2>
+        <button onClick={()=>navigate("/login")}>Register</button>
         </>)}
     </>
 }   
