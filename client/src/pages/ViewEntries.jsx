@@ -2,9 +2,10 @@ import react, {useState, useEffect} from "react";
 import EntryCard from "../components/EntryCard";
 import useAuth from "../store/Auth";
 import FullDailyEntry from "../components/FullDailyEntry";
+import { useNavigate } from "react-router-dom";
 
-// Hi This is a Comment
 function ViewEntries(){
+    const navigate = useNavigate();
     const {user} = useAuth();
     const userID = user._id;
     const [entries, setEntries] = useState([]);
@@ -34,8 +35,9 @@ function ViewEntries(){
     
     }, [userID]);
     
+    const backButton = <><button onClick={()=>navigate("/")}>Back</button><br /></>;
 
-    return (<> {(isClicked)? <FullDailyEntry data={currEntry}/> : (entries.length==0)?<h1>You Have Not Made Any Entries</h1>:entries.map(createCards) }</>);
+    return (<> {(isClicked)? <FullDailyEntry data={currEntry}/> : (entries.length==0)?<h1>You Have Not Made Any Entries</h1>:entries.map(createCards) } {backButton}</>);
 }
 
 export default ViewEntries;
