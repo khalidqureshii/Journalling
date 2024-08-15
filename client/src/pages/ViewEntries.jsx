@@ -3,7 +3,7 @@ import EntryCard from "../components/EntryCard";
 import useAuth from "../store/Auth";
 import FullDailyEntry from "../components/FullDailyEntry";
 
-
+// Hi This is a Comment
 function ViewEntries(){
     const {user} = useAuth();
     const userID = user._id;
