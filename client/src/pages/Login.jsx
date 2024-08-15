@@ -13,7 +13,7 @@ function Login() {
     
     React.useEffect(() => {
         if (currToken) {
-            navigate("/"); 
+            navigate("/"); // Navigate if the token exists
         }
     }, [currToken, navigate]);
 
