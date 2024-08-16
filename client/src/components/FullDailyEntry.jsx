@@ -2,7 +2,6 @@ import React from "react";
 import Prompt from "./Prompt";
 
 function FullDailyEntry(props) {
-    console.log("Received Props: ", props.data);
     const dateStr = props.data.date;
     const unformattedDate = new Date(dateStr);
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -17,7 +16,7 @@ function FullDailyEntry(props) {
 
     return (
         <>
-            <h1>{formattedDate}</h1>
+            <h1 className="mb-4 text-left">{formattedDate}</h1>
             <Prompt question={q1} answer={props.data.challenge} />
             <Prompt question={q2} answer={props.data.solving} />
             <Prompt question={q3} answer={props.data.moments} />

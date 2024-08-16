@@ -53,12 +53,12 @@ function Login() {
 
     return <>
         {(currToken == null) && (<>
-        <h1>Welcome To Login Page</h1>
-        <InputEntry changeFunction={updateUser} name="email" text="Email: " placeholder="Enter Your Email" />
-        <InputEntry changeFunction={updateUser} name="password" text="Password: " placeholder="Enter Your Password" />
+        <h1 className="mb-6">Welcome To Login Page</h1>
+        <InputEntry changeFunction={updateUser} name="email" text="Email" placeholder="Enter Your Email" />
+        <InputEntry changeFunction={updateUser} name="password" text="Password" placeholder="Enter Your Password" />
         <button type="submit" onClick={storeData}>Submit</button>
 
-        <h2>Don't have an Account?</h2>
+        <h2 className="text-2xl mb-2 mt-8">Don't have an Account?</h2>
         <button onClick={()=>navigate("/register")}>Register</button>
         </>)}
     </>

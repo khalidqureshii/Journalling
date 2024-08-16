@@ -6,11 +6,11 @@ function Home() {
     const navigate = useNavigate();
     const [isLoggedIn, changeLogin] = useState(hasLoggedIn);
 
-    const newEntryButton = <><button onClick={()=>navigate("/newEntry")}>New Entry</button><br /></>;
-    const logoutButton = <><button onClick={()=>navigate("/logout")}>Logout</button><br /></>;
-    const loginButton = <><button onClick={()=>navigate("/login")}>Login</button><br /></>;
-    const registerButton = <><button onClick={()=>navigate("/register")}>Register</button><br /></>
-    const viewEntriesButton = <><button onClick={()=>navigate("/viewEntries")}>View Entries</button><br /></>
+    const newEntryButton = <button className="mb-2 mx-2 w-40" onClick={()=>navigate("/newEntry")}>New Entry</button>;
+    const logoutButton = <><br /><button className="mb-2  mt-3 w-32" onClick={()=>navigate("/logout")}>Logout</button><br /></>;
+    const loginButton = <button className="mb-2 mx-2" onClick={()=>navigate("/login")}>Login</button>;
+    const registerButton = <button className="mb-2 mx-2" onClick={()=>navigate("/register")}>Register</button>;
+    const viewEntriesButton = <button className="mb-2 mx-2 w-40" onClick={()=>navigate("/viewEntries")}>View Entries</button>;
 
     function hasLoggedIn() {
         const currToken = localStorage.getItem("token");
@@ -21,7 +21,7 @@ function Home() {
     const displayName = (isLoggedIn)?(`, ${user.username}`):(``);
 
     return <>
-        <h1>Welcome To Home Page{displayName}</h1>
+        <h1 className="mb-5">Welcome To Home Page{displayName}</h1>
         {(isLoggedIn) ? (
         <>{newEntryButton}{viewEntriesButton}{logoutButton}</>):(<>{loginButton}{registerButton}</>) }    
     </>

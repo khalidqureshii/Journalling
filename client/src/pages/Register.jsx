@@ -54,17 +54,17 @@ function Register() {
 
     return <>
         {currToken == null && (<>
-        <h1>Welcome To Register Page</h1>
-        <InputEntry changeFunction={updateUser} name="username" text="Username: " placeholder="Enter Your Name" value={user.username} /> 
-        <InputEntry changeFunction={updateUser} name="email" text="Email: " placeholder="Enter Your Email" value={user.email} />
-        <InputEntry changeFunction={updateUser} name="phone" text="Phone Number: " placeholder="Enter Your Phone Number" value={user.phone} />
-        <InputEntry changeFunction={updateUser} name="password" text="Password: " placeholder="Enter Your Password" value={user.password} />
-        <InputEntry changeFunction={updateUser} name="confirmPassword" text="Confirm Password: " placeholder="Re-Enter Your Password" value={user.confirmPassword} />
+        <h1 className="mb-6">Welcome To Register Page</h1>
+        <InputEntry changeFunction={updateUser} name="username" text="Username" placeholder="Enter Your Name" value={user.username} /> 
+        <InputEntry changeFunction={updateUser} name="email" text="Email" placeholder="Enter Your Email" value={user.email} />
+        <InputEntry changeFunction={updateUser} name="phone" text="Phone Number" placeholder="Enter Your Phone Number" value={user.phone} />
+        <InputEntry changeFunction={updateUser} name="password" text="Password" placeholder="Enter Your Password" value={user.password} />
+        <InputEntry changeFunction={updateUser} name="confirmPassword" text="Confirm Password" placeholder="Re-Enter Your Password" value={user.confirmPassword} />
         <button type="submit" onClick={storeData}>Submit</button>
         {(!user.match) ? <h3>Passwords Do Not Match</h3> : null}
 
-        <h2 className="text-2xl">Already have an Account?</h2>
-        <button onClick={()=>navigate("/login")}>Register</button>
+        <h2 className="text-2xl mt-7 mb-2">Already have an Account?</h2>
+        <button onClick={()=>navigate("/login")}>Login</button>
         </>)}
     </>
 }   

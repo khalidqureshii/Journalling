@@ -52,15 +52,18 @@ function newEntry() {
     const backButton = <><br /><button onClick={()=>navigate("/")}>Back</button><br /></>;
 
     return <>
-        <h1>Welcome To New Entry Page</h1>
+        <h1 className="mb-6">Welcome To New Entry Page</h1>
         <InputArea changeFunction={updateUser} name="challenge" text={q1} placeholder="Enter Text Here..." />
         <InputArea changeFunction={updateUser} name="solving" text={q2} placeholder="Enter Text Here..." />
         <InputArea changeFunction={updateUser} name="moments" text={q3} placeholder="Enter Text Here..." />
         <InputArea changeFunction={updateUser} name="gratitude" text={q4} placeholder="Enter Text Here..." />
         <InputArea changeFunction={updateUser} name="smile" text={q5} placeholder="Enter Text Here..." />
         <InputArea changeFunction={updateUser} name="madeSmile" text={q6} placeholder="Enter Text Here..." />
-        {backButton}
-        <button type="submit" onClick={storeEntry}>Submit</button>
+
+        <div>
+            <button className="w-24 mr-2" onClick={()=>navigate("/")}>Back</button>
+            <button type="submit" className="w-24 ml-2" onClick={storeEntry}>Submit</button>
+        </div>
     </>
 }
 
