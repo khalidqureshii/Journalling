@@ -21,7 +21,7 @@ export const AuthProvider = ({children}) => {
 
     const userAuthentication = async () => {
         try {
-            const response = await fetch("http://localhost:5000/api/auth/user", {
+            const response = await fetch(process.env.URL.toString() + "api/auth/user", {
                 method: "GET",
                 headers: {
                     Authorization: `${token}`,

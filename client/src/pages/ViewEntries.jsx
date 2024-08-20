@@ -21,7 +21,7 @@ function ViewEntries(){
 
     useEffect(()=>{
         async function fetchEntries() {
-            const response = await fetch("http://localhost:5000/api/entries/getEntries", {
+            const response = await fetch(process.env.URL.toString() + "api/entries/getEntries", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
