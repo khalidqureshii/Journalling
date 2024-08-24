@@ -4,7 +4,7 @@ import useAuth from "../store/Auth";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import LINK from "../store/Link";
-import ClipLoader from "react-spinners/HashLoader";
+import HashLoader from "react-spinners/HashLoader";
 
 // const {userID, challenge, solving, moments, gratitude, smile, madeSmile} = req.body;
 function newEntry() {

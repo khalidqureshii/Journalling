@@ -1,7 +1,7 @@
 import React from "react";
 import LINK from "../store/Link";
 export const AuthContext = React.createContext();
-import ClipLoader from "react-spinners/ClipLoader";
+import HashLoader from "react-spinners/HashLoader";
 
 export const AuthProvider = ({children}) => {
     const [isLoading, setLoading] = React.useState(false);

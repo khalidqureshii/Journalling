@@ -4,7 +4,7 @@ import useAuth from "../store/Auth";
 import FullDailyEntry from "../components/FullDailyEntry";
 import { useNavigate } from "react-router-dom";
 import LINK from "../store/Link";
-import ClipLoader from "react-spinners/HashLoader";
+import HashLoader from "react-spinners/HashLoader";
 
 function ViewEntries(){
     const {user} = useAuth();
