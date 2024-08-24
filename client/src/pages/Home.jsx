@@ -17,6 +17,7 @@ function Home() {
         if (currToken == null) return false;
         else return true;
     }
+    //Comment
     const {user } = useAuth();
     const displayName = (isLoggedIn)?(`, ${user.username}`):(``);
 
