@@ -4,7 +4,7 @@ import useAuth from "../store/Auth";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import LINK from "../store/Link";
-import ClipLoader from "react-spinners/ClipLoader";
+import ClipLoader from "react-spinners/HashLoader";
 
 function Register() {
     const navigate = useNavigate();
@@ -55,10 +55,7 @@ function Register() {
         }
     }
 
-    return <> {isLoading ? 
-        <>
-        <ClipLoader/>
-        </> : <>
+    return <> {isLoading ? <HashLoader color="#00fa5d" /> : <>
         {currToken == null && (<>
         <h1 className="mb-6">Welcome To Register Page</h1>
         <InputEntry changeFunction={updateUser} name="username" text="Username" placeholder="Enter Your Name" value={user.username} /> 

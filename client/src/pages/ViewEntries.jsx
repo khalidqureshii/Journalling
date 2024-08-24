@@ -4,7 +4,7 @@ import useAuth from "../store/Auth";
 import FullDailyEntry from "../components/FullDailyEntry";
 import { useNavigate } from "react-router-dom";
 import LINK from "../store/Link";
-import ClipLoader from "react-spinners/ClipLoader";
+import ClipLoader from "react-spinners/HashLoader";
 
 function ViewEntries(){
     const {user} = useAuth();
@@ -46,7 +46,7 @@ function ViewEntries(){
 
     return <> {isLoading ? 
         <>
-        <ClipLoader/>
+        <HashLoader color="#00fa5d" />
         </> : <> {(isClicked)? (<FullDailyEntry data={currEntry} />) : 
         ( (entries.length==0) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>) } {backButton} {logoutButton}
         </>}

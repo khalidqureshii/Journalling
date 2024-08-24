@@ -4,7 +4,7 @@ import {useAuth} from "../store/Auth"
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import LINK from "../store/Link";
-import ClipLoader from "react-spinners/ClipLoader";
+import ClipLoader from "react-spinners/HashLoader";
 
 function Login() {
     const navigate = useNavigate();
@@ -54,10 +54,7 @@ function Login() {
         }
     }
 
-    return <> {isLoading ? 
-        <>
-        <ClipLoader/>
-        </> :
+    return <> {isLoading ? <HashLoader color="#00fa5d" /> :
         <>
             {(currToken == null) && (<>
             <h1 className="mb-6">Welcome To Login Page</h1>

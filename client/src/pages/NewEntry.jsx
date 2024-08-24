@@ -4,7 +4,7 @@ import useAuth from "../store/Auth";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import LINK from "../store/Link";
-import ClipLoader from "react-spinners/ClipLoader";
+import ClipLoader from "react-spinners/HashLoader";
 
 // const {userID, challenge, solving, moments, gratitude, smile, madeSmile} = req.body;
 function newEntry() {
@@ -55,10 +55,7 @@ function newEntry() {
 
     const backButton = <><br /><button onClick={()=>navigate("/")}>Back</button><br /></>;
 
-    return <> {isLoading ? 
-        <>
-        <ClipLoader/>
-        </> : <>
+    return <> {isLoading ? <HashLoader color="#00fa5d" /> : <>
         <h1 className="mb-6">Welcome To New Entry Page</h1>
         <InputArea changeFunction={updateUser} name="challenge" text={q1} placeholder="Enter Text Here..." />
         <InputArea changeFunction={updateUser} name="solving" text={q2} placeholder="Enter Text Here..." />
