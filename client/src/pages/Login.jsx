@@ -41,7 +41,7 @@ function Login() {
             },
             body: JSON.stringify(user)
         }); 
-        //setLoading(false);
+        setLoading(false);
         if (response.ok) {
             toast("Successfully Logged in");
             const resp_data = await response.json();
