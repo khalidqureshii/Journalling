@@ -44,10 +44,7 @@ function ViewEntries(){
     const entryHeader = <h1 className="text-5xl mb-1">Past Entries</h1>;
     const logoutButton = <><button className="w-24 mx-2" onClick={()=>navigate("/logout")}>Logout</button><br /></>;
 
-    return <> {isLoading ? 
-        <>
-        <HashLoader color="#ffffff" />
-        </> : <> {(isClicked)? (<FullDailyEntry data={currEntry} />) : 
+    return <> {isLoading ? <HashLoader color="#ffffff" /> : <> {(isClicked)? (<FullDailyEntry data={currEntry} />) : 
         ( (entries.length==0) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>) } {backButton} {logoutButton}
         </>}
     </>;
