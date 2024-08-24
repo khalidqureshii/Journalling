@@ -1,9 +1,10 @@
 import React from "react";
 import LINK from "../store/Link";
 export const AuthContext = React.createContext();
+import ClipLoader from "react-spinners/ClipLoader";
 
 export const AuthProvider = ({children}) => {
-
+    const [isLoading, setLoading] = React.useState(false);
     const[token, setToken] = React.useState(localStorage.getItem("token"));
     const [user, setUser] = React.useState("");
 
@@ -22,13 +23,14 @@ export const AuthProvider = ({children}) => {
 
     const userAuthentication = async () => {
         try {
+            setLoading(true);
             const response = await fetch(LINK + "api/auth/user", {
                 method: "GET",
                 headers: {
                     Authorization: `${token}`,
                 }
             });
-            //console.log("This is the Response",response.ok);
+            setLoading(false);
             if (response.ok) {
                 const data = await response.json();
                 const userData = data.msg;

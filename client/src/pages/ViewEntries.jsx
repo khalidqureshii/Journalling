@@ -4,12 +4,13 @@ import useAuth from "../store/Auth";
 import FullDailyEntry from "../components/FullDailyEntry";
 import { useNavigate } from "react-router-dom";
 import LINK from "../store/Link";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function ViewEntries(){
     const {user} = useAuth();
     const userID = user._id;
     const [entries, setEntries] = useState([]);
-    
+    const [isLoading, setLoading] = useState(false);
     const [isClicked, setClickEntry] = useState(false);
     const [currEntry, setCurrEntry] = useState([]);
 
@@ -21,6 +22,7 @@ function ViewEntries(){
 
     useEffect(()=>{
         async function fetchEntries() {
+            setLoading(true);
             const response = await fetch(LINK + "api/entries/getEntries", {
                 method: "POST",
                 headers: {
@@ -31,6 +33,7 @@ function ViewEntries(){
             const data = await response.json();
             const allEntries = data.allEntries;
             setEntries(allEntries);
+            setLoading(false);
         }
         fetchEntries();
     
@@ -41,9 +44,13 @@ function ViewEntries(){
     const entryHeader = <h1 className="text-5xl mb-1">Past Entries</h1>;
     const logoutButton = <><button className="w-24 mx-2" onClick={()=>navigate("/logout")}>Logout</button><br /></>;
 
-    return ( <> {(isClicked)? (<FullDailyEntry data={currEntry} />) : 
-        ( (entries.length==0) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>) } {backButton} {logoutButton}</>
-    );
+    return <> {isLoading ? 
+        <>
+        <ClipLoader/>
+        </> : <> {(isClicked)? (<FullDailyEntry data={currEntry} />) : 
+        ( (entries.length==0) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>) } {backButton} {logoutButton}
+        </>}
+    </>;
 }
 
 export default ViewEntries;

@@ -4,6 +4,7 @@ import {useAuth} from "../store/Auth"
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import LINK from "../store/Link";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Login() {
     const navigate = useNavigate();
@@ -11,6 +12,8 @@ function Login() {
     console.log(currToken)
     const [user,setUser] = useState({email: "", password: ""});
     const {storeTokenInLS} = useAuth();
+
+    const [isLoading, setLoading] = useState(false);
     
     React.useEffect(() => {
         if (currToken) {
@@ -30,7 +33,7 @@ function Login() {
     }
     
     async function storeData() {
-        console.log(user);
+        setLoading(true);
         const response = await fetch(LINK + "api/auth/login", {
             method: "POST",
             headers: {
@@ -38,7 +41,7 @@ function Login() {
             },
             body: JSON.stringify(user)
         }); 
-        
+        setLoading(false);
         if (response.ok) {
             toast("Successfully Logged in");
             const resp_data = await response.json();
@@ -47,21 +50,26 @@ function Login() {
         }
         else {
             const res_data = await response.json();
-            console.log(res_data.extraDetails);
             toast(res_data.extraDetails);
         }
     }
 
-    return <>
-        {(currToken == null) && (<>
-        <h1 className="mb-6">Welcome To Login Page</h1>
-        <InputEntry changeFunction={updateUser} name="email" text="Email" placeholder="Enter Your Email" />
-        <InputEntry changeFunction={updateUser} name="password" text="Password" placeholder="Enter Your Password" />
-        <button type="submit" onClick={storeData}>Submit</button>
+    return <> {isLoading ? 
+        <>
+        <ClipLoader/>
+        </> :
+        <>
+            {(currToken == null) && (<>
+            <h1 className="mb-6">Welcome To Login Page</h1>
+            <InputEntry changeFunction={updateUser} name="email" text="Email" placeholder="Enter Your Email" />
+            <InputEntry changeFunction={updateUser} name="password" text="Password" placeholder="Enter Your Password" />
+            <button type="submit" onClick={storeData}>Submit</button>
 
-        <h2 className="text-2xl mb-2 mt-8">Don't have an Account?</h2>
-        <button onClick={()=>navigate("/register")}>Register</button>
-        </>)}
+            <h2 className="text-2xl mb-2 mt-8">Don't have an Account?</h2>
+            <button onClick={()=>navigate("/register")}>Register</button>
+            </>)}
+        </>
+        }
     </>
 }   
 

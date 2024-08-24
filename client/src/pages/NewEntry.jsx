@@ -4,6 +4,7 @@ import useAuth from "../store/Auth";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import LINK from "../store/Link";
+import ClipLoader from "react-spinners/ClipLoader";
 
 // const {userID, challenge, solving, moments, gratitude, smile, madeSmile} = req.body;
 function newEntry() {
@@ -11,7 +12,7 @@ function newEntry() {
     const {user} = useAuth();
     const currUserId = user._id;
     const [userData, setUserData] = useState({userID: currUserId, challenge: "", solving: "", moments: "", gratitude: "", smile: "", madeSmile: ""});
-
+    const [isLoading, setLoading] = useState(false);
     const q1 = "What are the main challenges you’re facing today? Describe them.";
     const q2 = "How did you address these challenges?";
     const q3 = "What were the best moments of your day?";
@@ -31,6 +32,7 @@ function newEntry() {
     }
 
     async function storeEntry() {
+        setLoading(true);
         const response = await fetch(LINK + "api/entries/newEntry", {
             method: "POST",
             headers: {
@@ -38,6 +40,7 @@ function newEntry() {
             },
             body: JSON.stringify(userData)
         }); 
+        setLoading(false);
 
         if (response.ok) {
             toast("Successfully Created New Entry");
@@ -52,7 +55,10 @@ function newEntry() {
 
     const backButton = <><br /><button onClick={()=>navigate("/")}>Back</button><br /></>;
 
-    return <>
+    return <> {isLoading ? 
+        <>
+        <ClipLoader/>
+        </> : <>
         <h1 className="mb-6">Welcome To New Entry Page</h1>
         <InputArea changeFunction={updateUser} name="challenge" text={q1} placeholder="Enter Text Here..." />
         <InputArea changeFunction={updateUser} name="solving" text={q2} placeholder="Enter Text Here..." />
@@ -65,6 +71,7 @@ function newEntry() {
             <button className="w-24 mr-2" onClick={()=>navigate("/")}>Back</button>
             <button type="submit" className="w-24 ml-2" onClick={storeEntry}>Submit</button>
         </div>
+    </>}
     </>
 }
 
