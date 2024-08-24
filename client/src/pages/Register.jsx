@@ -55,7 +55,9 @@ function Register() {
         }
     }
 
-    return <> {isLoading ? <HashLoader color="#ffffff" /> : <>
+    const serverMessage = "The Server Can Take Upto 90 Seconds Due To Inactivity";
+
+    return <> {isLoading ? <div className="flex flex-col items-center"><HashLoader color="#ffffff" /><h2 className="text-2xl mb-2 mt-8">{serverMessage}</h2></div> : <>
         {currToken == null && (<>
         <h1 className="mb-6">Welcome To Register Page</h1>
         <InputEntry changeFunction={updateUser} name="username" text="Username" placeholder="Enter Your Name" value={user.username} /> 

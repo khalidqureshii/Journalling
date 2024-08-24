@@ -41,7 +41,7 @@ function Login() {
             },
             body: JSON.stringify(user)
         }); 
-        setLoading(false);
+        //setLoading(false);
         if (response.ok) {
             toast("Successfully Logged in");
             const resp_data = await response.json();
@@ -53,8 +53,9 @@ function Login() {
             toast(res_data.extraDetails);
         }
     }
+    const serverMessage = "The Server Can Take Upto 90 Seconds Due To Inactivity";
 
-    return <> {isLoading ? <HashLoader color="#ffffff" /> :
+    return <> {isLoading ? <div className="flex flex-col items-center"><HashLoader color="#ffffff" /><h2 className="text-2xl mb-2 mt-8">{serverMessage}</h2></div> :
         <>
             {(currToken == null) && (<>
             <h1 className="mb-6">Welcome To Login Page</h1>
