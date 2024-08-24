@@ -87,4 +87,4 @@ const user = async (req, res) => {
     }
 }
 
-export {login, register, home, user, defaultAddress};
+export {login, register, home, user};
