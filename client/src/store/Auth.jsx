@@ -1,4 +1,5 @@
 import React from "react";
+import LINK from "../store/Link";
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({children}) => {
@@ -21,7 +22,7 @@ export const AuthProvider = ({children}) => {
 
     const userAuthentication = async () => {
         try {
-            const response = await fetch(process.env.URL.toString() + "api/auth/user", {
+            const response = await fetch(LINK + "api/auth/user", {
                 method: "GET",
                 headers: {
                     Authorization: `${token}`,

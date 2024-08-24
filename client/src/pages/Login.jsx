@@ -3,6 +3,7 @@ import InputEntry from "../components/InputEntry";
 import {useAuth} from "../store/Auth"
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
+import LINK from "../store/Link";
 
 function Login() {
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ function Login() {
     
     React.useEffect(() => {
         if (currToken) {
-            navigate("/"); // Navigate if the token exists
+            navigate("/"); 
         }
     }, [currToken, navigate]);
 
@@ -30,7 +31,7 @@ function Login() {
     
     async function storeData() {
         console.log(user);
-        const response = await fetch(process.env.URL.toString() + "api/auth/login", {
+        const response = await fetch(LINK + "api/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

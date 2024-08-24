@@ -3,6 +3,7 @@ import InputArea from "../components/InputArea";
 import useAuth from "../store/Auth";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
+import LINK from "../store/Link";
 
 // const {userID, challenge, solving, moments, gratitude, smile, madeSmile} = req.body;
 function newEntry() {
@@ -30,7 +31,7 @@ function newEntry() {
     }
 
     async function storeEntry() {
-        const response = await fetch(process.env.URL.toString() + "api/entries/newEntry", {
+        const response = await fetch(LINK + "api/entries/newEntry", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

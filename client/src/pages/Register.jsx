@@ -3,6 +3,7 @@ import InputEntry from "../components/InputEntry";
 import useAuth from "../store/Auth";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
+import LINK from "../store/Link";
 
 function Register() {
     const navigate = useNavigate();
@@ -31,7 +32,7 @@ function Register() {
 
     async function storeData() {
         if (!user.match) return;
-        const response = await fetch(process.env.URL.toString() + "api/auth/register", {
+        const response = await fetch(LINK + "api/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

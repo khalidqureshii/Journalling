@@ -3,8 +3,8 @@ import EntryCard from "../components/EntryCard";
 import useAuth from "../store/Auth";
 import FullDailyEntry from "../components/FullDailyEntry";
 import { useNavigate } from "react-router-dom";
+import LINK from "../store/Link";
 
-// Hi This is a Comment
 function ViewEntries(){
     const {user} = useAuth();
     const userID = user._id;
@@ -21,7 +21,7 @@ function ViewEntries(){
 
     useEffect(()=>{
         async function fetchEntries() {
-            const response = await fetch(process.env.URL.toString() + "api/entries/getEntries", {
+            const response = await fetch(LINK + "api/entries/getEntries", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
