@@ -9,7 +9,6 @@ const router = express.Router();
 
 router.route("/login").post(validateLogin(loginSchema),authControllers.login);
 router.route("/register").post(validateSignUp(signUpSchema),authControllers.register);
-router.route("/").get(authControllers.defaultAddress);
 router.route("/user").get(authMiddleware, authControllers.user);
 
 export default router;

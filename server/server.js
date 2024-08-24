@@ -21,3 +21,7 @@ connectDB().then( () => {
         console.log(`Server is running at Port ${PORT}`);
     })
 });
+
+app.get("/", (req, res) => {
+    return res.status(200).json({msg: "Server Is Running"});
+})
