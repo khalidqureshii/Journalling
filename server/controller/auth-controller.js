@@ -87,4 +87,8 @@ const user = async (req, res) => {
     }
 }
 
-export {login, register, home, user };
+const defaultAddress = async (req, res) => {
+    return res.status(200).json({msg: "Server Is Running"})
+}
+
+export {login, register, home, user, defaultAddress};
