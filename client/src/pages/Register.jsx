@@ -55,7 +55,7 @@ function Register() {
         }
     }
 
-    return <> {isLoading ? <HashLoader color="#00fa5d" /> : <>
+    return <> {isLoading ? <HashLoader color="#ffffff" /> : <>
         {currToken == null && (<>
         <h1 className="mb-6">Welcome To Register Page</h1>
         <InputEntry changeFunction={updateUser} name="username" text="Username" placeholder="Enter Your Name" value={user.username} /> 

@@ -46,7 +46,7 @@ function ViewEntries(){
 
     return <> {isLoading ? 
         <>
-        <HashLoader color="#00fa5d" />
+        <HashLoader color="#ffffff" />
         </> : <> {(isClicked)? (<FullDailyEntry data={currEntry} />) : 
         ( (entries.length==0) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>) } {backButton} {logoutButton}
         </>}

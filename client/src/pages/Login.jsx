@@ -54,7 +54,7 @@ function Login() {
         }
     }
 
-    return <> {isLoading ? <HashLoader color="#00fa5d" /> :
+    return <> {isLoading ? <HashLoader color="#ffffff" /> :
         <>
             {(currToken == null) && (<>
             <h1 className="mb-6">Welcome To Login Page</h1>

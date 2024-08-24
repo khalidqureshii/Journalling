@@ -55,7 +55,7 @@ function newEntry() {
 
     const backButton = <><br /><button onClick={()=>navigate("/")}>Back</button><br /></>;
 
-    return <> {isLoading ? <HashLoader color="#00fa5d" /> : <>
+    return <> {isLoading ? <HashLoader color="#ffffff" /> : <>
         <h1 className="mb-6">Welcome To New Entry Page</h1>
         <InputArea changeFunction={updateUser} name="challenge" text={q1} placeholder="Enter Text Here..." />
         <InputArea changeFunction={updateUser} name="solving" text={q2} placeholder="Enter Text Here..." />
