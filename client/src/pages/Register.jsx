@@ -51,7 +51,7 @@ function Register() {
         else {
             const res_data = await response.json();
             console.log(res_data.extraDetails);
-            toast(res_data.extraDetails);
+            toast("User Already Exists !");
         }
     }
 

@@ -3,7 +3,7 @@ import User from "../models/user-model.js";
 
 const home = async (req, res)=> {
     try{
-        res.status(200).send({msg: "Hi, This is Khalid from API"});
+        res.status(200).send({msg: "Home Page"});
     }
     catch (err) {
         const status = 404;
@@ -49,7 +49,7 @@ const login = async (req, res)=> {
 const register = async (req, res)=> {
     try{
         const {username, phone, email, password} = req.body;
-        const userExists = await User.findOne({username: username});
+        const userExists = await User.findOne({ $or: [username, phone, email] });
         if (userExists) {
             return res.status(400).json({msg: "User Already Exists"});
         }
