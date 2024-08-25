@@ -50,7 +50,7 @@ function FullDailyEntry(props) {
                 <Prompt question={q5} answer={props.data.smile} />
                 <Prompt question={q6} answer={props.data.madeSmile} />
                 <button className="mt-3 w-24 mx-2" onClick={()=>navigate("/viewEntries")}>Back</button>
-                <button className="w-24 mx-2" onClick={()=>{clickDelete(true)}}>Delete</button>
+                <button className="w-24 mx-2 bg-red-500" onClick={()=>{clickDelete(true)}}>Delete</button>
                 <button className="w-24 mx-2" onClick={()=>navigate("/logout")}>Logout</button>
             </>}
         </>
