@@ -21,7 +21,7 @@ function FullDailyEntry(props) {
     async function deleteEntry() {
         const entryID = props.data._id;
         const output = fetch(LINK + "api/entries/deleteEntry", {
-            method: "POST",
+            method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
             },
