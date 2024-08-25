@@ -5,5 +5,6 @@ const entryRouter = express.Router();
 
 entryRouter.route("/newEntry").post(EntryControllers.newEntry);
 entryRouter.route("/getEntries").post(EntryControllers.getEntries);
+entryRouter.route("/deleteEntry").post(EntryControllers.delEntry);
 
 export default entryRouter;

@@ -39,4 +39,23 @@ const getEntries = async (req, res) => {
     }
 }
 
-export {newEntry, getEntries};
+const delEntry = async (req, res) => {
+    try {
+        const {entryID} = req.body;
+        const output = await JournalEntry.deleteOne({_id: entryID});
+        res.status(200).json({msg: "Successfully Deleted"});
+    }
+    catch (err) {
+        const status = 401;
+        const message = "User Token Does Not Exist";
+        const extraDetails = err.errors[0].message.toString();
+        const errorDetails = {
+            message,
+            status,
+            extraDetails
+        }
+        next(errorDetails);
+    }
+}
+
+export {newEntry, getEntries, delEntry};

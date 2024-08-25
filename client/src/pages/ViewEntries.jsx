@@ -37,17 +37,20 @@ function ViewEntries(){
         }
         fetchEntries();
     
-    }, [userID]);
+    }, [userID, isClicked]);
     
     const backButton = <><br /><button className="mt-3 w-24 mx-2" onClick={()=>navigate("/")}>Back</button></>;
     const noEntryHeader = <h1 className="mb-0">You Have Not Made Any Entries</h1>;
     const entryHeader = <h1 className="text-5xl mb-1">Past Entries</h1>;
     const logoutButton = <><button className="w-24 mx-2" onClick={()=>navigate("/logout")}>Logout</button><br /></>;
 
-    return <> {isLoading ? <HashLoader color="#ffffff" /> : <> {(isClicked)? (<FullDailyEntry data={currEntry} />) : 
-        ( (entries.length==0) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>) } {backButton} {logoutButton}
-        </>}
-    </>;
+    return <> {isLoading ? <HashLoader color="#ffffff" /> : 
+        <> {(isClicked)? (<FullDailyEntry data={currEntry} deleteMethod={setClickEntry}/>) : 
+            (<> {(entries.length==0) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>}
+            {backButton} {logoutButton} </> )}
+        </>
+        
+    }</>;
 }
 
 export default ViewEntries;

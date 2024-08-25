@@ -9,7 +9,6 @@ import HashLoader from "react-spinners/HashLoader";
 function Login() {
     const navigate = useNavigate();
     const currToken = localStorage.getItem("token");
-    console.log(currToken)
     const [user,setUser] = useState({email: "", password: ""});
     const {storeTokenInLS} = useAuth();
 

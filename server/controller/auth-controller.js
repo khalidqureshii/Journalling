@@ -14,14 +14,15 @@ const home = async (req, res)=> {
             status,
             extraDetails
         };
-        next(errorDetails);
+        return res.status(404).json({msg: "Error"});
+        //next(errorDetails);
     }
 };
 
 const login = async (req, res)=> {
     try{
         const {email, password } = req.body;
-        const userExists = await User.findOne({email: email});
+        const userExists = await User.findOne({email});
         if (!userExists) {
             return res.status(400).json({msg: "Error: Invalid Credentials", extraDetails: "Error: Invalid Credentials"});
         }
@@ -36,13 +37,14 @@ const login = async (req, res)=> {
     catch (err) {
         const status = 404;
         const message = "Error in Login";
-        const extraDetails = err.errors[0].message;
+        const extraDetails = "Nothing";
         const errorDetails = {
             message,
             status,
             extraDetails
         };
-        next(errorDetails);
+        //next(errorDetails);
+        return res.status(404).json({msg: "Error"});
     }
 };
 
@@ -65,7 +67,8 @@ const register = async (req, res)=> {
             status,
             extraDetails
         }
-        next(errorDetails);
+        //next(errorDetails);
+        return res.status(404).json({msg: "Error"});
     }
 };
 
@@ -83,7 +86,8 @@ const user = async (req, res) => {
             status,
             extraDetails
         }
-        next(errorDetails);
+        return res.status(404).json({msg: "Error"});
+        //next(errorDetails);
     }
 }
 
