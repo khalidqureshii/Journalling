@@ -32,6 +32,11 @@ function FullDailyEntry(props) {
         navigate("/viewEntries");
     }
 
+    async function goBack() {
+        props.deleteMethod(false);
+        navigate("/viewEntries");
+    }
+
     const [clickedDelete, clickDelete] = useState(false);
 
     return (<>
@@ -49,7 +54,7 @@ function FullDailyEntry(props) {
                 <Prompt question={q4} answer={props.data.gratitude} />
                 <Prompt question={q5} answer={props.data.smile} />
                 <Prompt question={q6} answer={props.data.madeSmile} />
-                <button className="mt-3 w-24 mx-2" onClick={()=>navigate("/viewEntries")}>Back</button>
+                <button className="mt-3 w-24 mx-2" onClick={goBack}>Back</button>
                 <button className="w-24 mx-2 bg-red-500" onClick={()=>{clickDelete(true)}}>Delete</button>
                 <button className="w-24 mx-2" onClick={()=>navigate("/logout")}>Logout</button>
             </>}
