@@ -47,7 +47,7 @@ export const AuthProvider = ({children}) => {
     }, [token]);
     
     return (<AuthContext.Provider value={{isLoggedIn, storeTokenInLS, LogoutUser, user}}>
-        {children}
+        {isLoading? <HashLoader color="ffffff"/>:children}
     </AuthContext.Provider>);
 };
 
