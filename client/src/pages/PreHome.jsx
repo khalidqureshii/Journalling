@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 function PreHome() {
     const [isLoggedIn, changeLogin] = useState(hasLoggedIn());
-    const loginButton = <><button onClick={()=>navigate("/login")}>Login</button><br /></>;
-    const registerButton = <><button onClick={()=>navigate("/register")}>Register</button><br /></>;
+    const loginButton = <button className="mx-2" onClick={()=>navigate("/login")}>Login</button>;
+    const registerButton = <button className="mx-2" onClick={()=>navigate("/register")}>Register</button>;
     const navigate = useNavigate();
 
     function hasLoggedIn() {
