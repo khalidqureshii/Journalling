@@ -59,17 +59,19 @@ function Register() {
 
     return <> {isLoading ? <div className="flex flex-col items-center"><Loader /><h2 className="text-2xl mb-2 mt-8">{serverMessage}</h2></div> : <>
         {currToken == null && (<>
-        <h1 className="mb-6">Welcome To Register Page</h1>
-        <InputEntry changeFunction={updateUser} name="username" text="Username" placeholder="Enter Your Name" value={user.username} /> 
-        <InputEntry changeFunction={updateUser} name="email" text="Email" placeholder="Enter Your Email" value={user.email} />
-        <InputEntry changeFunction={updateUser} name="phone" text="Phone Number" placeholder="Enter Your Phone Number" value={user.phone} />
-        <InputEntry changeFunction={updateUser} name="password" text="Password" placeholder="Enter Your Password" value={user.password} />
-        <InputEntry changeFunction={updateUser} name="confirmPassword" text="Confirm Password" placeholder="Re-Enter Your Password" value={user.confirmPassword} />
-        <button type="submit" onClick={storeData}>Submit</button>
-        {(!user.match) ? <h3>Passwords Do Not Match</h3> : null}
+        <div class="flex flex-col justify-center items-center text-center">
+            <h1 className="text-5xl mt-10 mb-6">Welcome To Register Page</h1>
+            <InputEntry changeFunction={updateUser} name="username" text="Username" placeholder="Enter Your Name" value={user.username} /> 
+            <InputEntry changeFunction={updateUser} name="email" text="Email" placeholder="Enter Your Email" value={user.email} />
+            <InputEntry changeFunction={updateUser} name="phone" text="Phone Number" placeholder="Enter Your Phone Number" value={user.phone} />
+            <InputEntry changeFunction={updateUser} name="password" text="Password" placeholder="Enter Your Password" value={user.password} />
+            <InputEntry changeFuntion={updateUser} name="confirmPassword" text="Confirm Password" placeholder="Re-Enter Your Password" value={user.confirmPassword} />
+            <button type="submit" className="w-32 h-12 customButton" onClick={storeData}>Submit</button>
+            {(!user.match) ? <h3>Passwords Do Not Match</h3> : null}
 
-        <h2 className="text-2xl mt-7 mb-2">Already have an Account?</h2>
-        <button onClick={()=>navigate("/login")}>Login</button>
+            <h2 className="text-3xl mt-7 mb-4">Already have an Account?</h2>
+            <button className="customButton h-12 w-32" onClick={()=>navigate("/login")}>Login</button>
+        </div>
         </>)}
         </>}
     </>

@@ -54,15 +54,17 @@ function newEntry() {
     }
 
     return <> {isLoading ? <Loader /> : <>
-        <h1 className="mb-6">Welcome To New Entry Page</h1>
-        <InputArea changeFunction={updateUser} name="challenge" text={q1} placeholder="Enter Text Here..." />
-        <InputArea changeFunction={updateUser} name="solving" text={q2} placeholder="Enter Text Here..." />
-        <InputArea changeFunction={updateUser} name="moments" text={q3} placeholder="Enter Text Here..." />
-        <InputArea changeFunction={updateUser} name="gratitude" text={q4} placeholder="Enter Text Here..." />
-        <InputArea changeFunction={updateUser} name="smile" text={q5} placeholder="Enter Text Here..." />
-        <InputArea changeFunction={updateUser} name="madeSmile" text={q6} placeholder="Enter Text Here..." />
+        <div className="w-full text-center">
+            <h1 className="mb-8 text-5xl mt-8">Welcome To New Entry Page</h1>
+            <InputArea changeFunction={updateUser} name="challenge" text={q1} placeholder="Enter Text Here..." />
+            <InputArea changeFunction={updateUser} name="solving" text={q2} placeholder="Enter Text Here..." />
+            <InputArea changeFunction={updateUser} name="moments" text={q3} placeholder="Enter Text Here..." />
+            <InputArea changeFunction={updateUser} name="gratitude" text={q4} placeholder="Enter Text Here..." />
+            <InputArea changeFunction={updateUser} name="smile" text={q5} placeholder="Enter Text Here..." />
+            <InputArea changeFunction={updateUser} name="madeSmile" text={q6} placeholder="Enter Text Here..." />
 
-        <button type="submit" className="w-24 ml-2" onClick={storeEntry}>Submit</button>
+            <button type="submit" className="w-32 h-12 ml-2 customButton mb-10" onClick={storeEntry}><h6 className="text-xl">Submit</h6></button>
+        </div>
     </>}
     </>
 }

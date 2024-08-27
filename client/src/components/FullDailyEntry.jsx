@@ -36,16 +36,18 @@ function FullDailyEntry(props) {
 
     return (<>
         { clickedDelete ? 
-        <div>
-            <h1>Do You Really Want to Delete this Entry?</h1><br />
-            <button className="w-24 mx-2" onClick={deleteEntry}>Yes</button>
-            <button className="w-24 mx-2" onClick={()=>{clickDelete(false)}}>Cancel</button>
+        <div className="flex flex-col justify-center items-center w-full h-90vh">
+            <h1 className="text-5xl">Do You Really Want to Delete this Entry?</h1><br />
+            <div>
+                <button className="w-32 h-12 mx-2 customButton" onClick={deleteEntry}><h6 className="text-xl">Yes</h6></button>
+                <button className="w-32 h-12 mx-2 customButton" onClick={()=>{clickDelete(false)}}><h6 className="text-xl">Cancel</h6></button>
+            </div>
         </div> :
             <> 
-                <div className="flex flex-row justify-between">
-                    <button className="my-3 w-24 mx-2" onClick={()=>{navigate("/")}}>Back</button>
-                    <h1 className="mb-4 text-left">{formattedDate}</h1>
-                    <button className="w-24 my-3 bg-red-500" onClick={()=>{clickDelete(true)}}>Delete</button>
+                <div className="flex flex-row justify-between mt-6">
+                    <button className="my-3 ml-7 w-24 mx-2 customButton" onClick={()=>{navigate("/")}}>Back</button>
+                    <h1 className="text-4xl mt-4 text-left">{formattedDate}</h1>
+                    <button className="w-24 my-3 mr-7 customButton bg-red-500" onClick={()=>{clickDelete(true)}}>Delete</button>
                 </div>
                 <Prompt question={q1} answer={props.data.challenge} />
                 <Prompt question={q2} answer={props.data.solving} />

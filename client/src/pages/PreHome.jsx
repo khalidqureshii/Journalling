@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 function PreHome() {
     const [isLoggedIn, changeLogin] = useState(hasLoggedIn());
-    const loginButton = <button className="mx-2" onClick={()=>navigate("/login")}>Login</button>;
-    const registerButton = <button className="mx-2" onClick={()=>navigate("/register")}>Register</button>;
+    const loginButton = <button className="mx-5 w-32 h-14 customButton text-[#ffffffde]" onClick={()=>navigate("/login")}><h6 className="text-2xl">Login</h6></button>;
+    const registerButton = <button className="mx-5 w-32 h-14 customButton" onClick={()=>navigate("/register")}><h6 className="text-2xl">Register</h6></button>;
     const navigate = useNavigate();
 
     function hasLoggedIn() {
@@ -20,10 +20,20 @@ function PreHome() {
         }
     }, [isLoggedIn]);
 
-    return <>
-        <h1 className="mb-5">Welcome To MindFul Moments</h1>
-        {loginButton}{registerButton}
-    </>
+    return (
+        <>
+          <div className="flex flex-col justify-center items-center w-full h-90vh text-center">
+          {/* <div className="w-full h-90vh text-center m-auto"> */}
+            <h1 className="text-5xl">
+              Join Us in This Amazing Journey Towards Better Mental Health
+            </h1>
+            <div className="text-center mt-8">
+              {loginButton}
+              {registerButton}
+            </div>
+          </div>
+        </>
+    );
 }
 
 export default PreHome;

@@ -18,12 +18,11 @@ function Home() {
     const [currEntry, setCurrEntry] = useState([]);
 
 
-    const newEntryButton = <button className="mb-2 mx-2 w-40" onClick={()=>navigate("/newEntry")}>New Entry</button>;
-
+    
     function createCards(entry){
         return <EntryCard data={entry} date={entry.date} updateClick={setClickEntry} updateEntry={setCurrEntry}/>
     }
-
+    
     useEffect(()=>{
         async function fetchEntries() {
             setLoading(true);
@@ -40,26 +39,27 @@ function Home() {
             setLoading(false);
         }
         fetchEntries();
-    
+        
     }, [userID, isClicked]);
-
-    const noEntryHeader = <h1 className="mb-0">You Have Not Made Any Entries</h1>;
-    const entryHeader = <h1 className="text-5xl mb-1">Past Entries</h1>;
-
+    
+    
     useEffect(()=>{
         if(!isClicked) return;
         setData(currEntry);
         setClickEntry(false);
         navigate("/viewEntry");
     }, [isClicked]);
-
+    
+    const noEntryHeader = <h1 className="text-4xl mt-3 mb-5">You Have Not Made Any Entries</h1>;
+    const entryHeader = <h1 className="text-4xl mb-5 mt-3">Past Entries</h1>;
+    const newEntryButton = <button className="mb-10 mt-3 mx-2 w-40 customButton" onClick={()=>navigate("/newEntry")}>New Entry</button>;
     return <>
         {isLoading ?<Loader /> : 
-            (<>
-                <h1 className="mb-5">Welcome To Home Page{displayName}</h1>
+            (<div className="flex flex-col justify-center items-center w-full h-90vh">
+                <h1 className="mb-5 text-5xl">Welcome To Home Page{displayName}</h1>
                 {newEntryButton} 
                 {(entries.length==0) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>}
-            </> )}
+            </div> )}
     </>
 }   
 

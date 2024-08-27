@@ -55,17 +55,17 @@ function Login() {
     const serverMessage = "The Server Can Take Upto 90 Seconds Due To Inactivity";
 
     return <> {isLoading ? <div className="flex flex-col items-center"><Loader /><h2 className="text-2xl mb-2 mt-8">{serverMessage}</h2></div> :
-        <>
+        <div className="w-full h-90vh flex flex-col justify-center items-center">
             {(currToken == null) && (<>
-            <h1 className="mb-6">Welcome To Login Page</h1>
+            <h1 className="mb-6 text-5xl text-center">Welcome To Login Page</h1>
             <InputEntry changeFunction={updateUser} name="email" text="Email" placeholder="Enter Your Email" />
             <InputEntry changeFunction={updateUser} name="password" text="Password" placeholder="Enter Your Password" />
-            <button type="submit" onClick={storeData}>Submit</button>
+            <button className="customButton" type="submit" onClick={storeData}>Submit</button>
 
-            <h2 className="text-2xl mb-2 mt-8">Don't have an Account?</h2>
-            <button onClick={()=>navigate("/register")}>Register</button>
+            <h2 className="text-2xl mb-4 mt-8">Don't have an Account?</h2>
+            <button className="customButton" onClick={()=>navigate("/register")}>Register</button>
             </>)}
-        </>
+        </div>
         }
     </>
 }   

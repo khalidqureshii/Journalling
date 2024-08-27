@@ -16,8 +16,7 @@ function EntryCard(props) {
 
     return (
         <>
-            <br />
-            <button onClick={setStates} className="mb-3">{formattedDate}</button>
+            <button onClick={setStates} className="mb-5 customButton">{formattedDate}</button>
         </>
     );
 }
