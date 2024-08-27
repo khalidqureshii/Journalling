@@ -1,7 +1,7 @@
 import React from "react";
 import LINK from "../store/Link";
 export const AuthContext = React.createContext();
-import HashLoader from "react-spinners/HashLoader";
+import Loader from "../components/Loader";
 
 export const AuthProvider = ({children}) => {
     const [isLoading, setLoading] = React.useState(false);
@@ -47,7 +47,7 @@ export const AuthProvider = ({children}) => {
     }, [token]);
     
     return (<AuthContext.Provider value={{isLoggedIn, storeTokenInLS, LogoutUser, user}}>
-        {isLoading? <HashLoader color="ffffff"/>:children}
+        {isLoading? <Loader />:children}
     </AuthContext.Provider>);
 };
 

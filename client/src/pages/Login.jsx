@@ -4,7 +4,7 @@ import {useAuth} from "../store/Auth"
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import LINK from "../store/Link";
-import HashLoader from "react-spinners/HashLoader";
+import Loader from "../components/Loader";
 
 function Login() {
     const navigate = useNavigate();
@@ -54,7 +54,7 @@ function Login() {
     }
     const serverMessage = "The Server Can Take Upto 90 Seconds Due To Inactivity";
 
-    return <> {isLoading ? <div className="flex flex-col items-center"><HashLoader color="#ffffff" /><h2 className="text-2xl mb-2 mt-8">{serverMessage}</h2></div> :
+    return <> {isLoading ? <div className="flex flex-col items-center"><Loader /><h2 className="text-2xl mb-2 mt-8">{serverMessage}</h2></div> :
         <>
             {(currToken == null) && (<>
             <h1 className="mb-6">Welcome To Login Page</h1>
