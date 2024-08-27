@@ -23,7 +23,7 @@ function Home() {
     return <>
         <h1 className="mb-5">Welcome To Home Page{displayName}</h1>
         {(isLoggedIn) ? (
-        <>{newEntryButton}{viewEntriesButton}{logoutButton}</>):(<>{loginButton}{registerButton}</>) }    
+        <>{newEntryButton}{viewEntriesButton}</>):(<>{loginButton}{registerButton}</>) }    
     </>
 }   
 
