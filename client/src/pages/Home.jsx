@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom";
 import EntryCard from "../components/EntryCard";
 import useAuth from "../store/Auth";
-import FullDailyEntry from "../components/FullDailyEntry";
 import LINK from "../store/Link";
 import Loader from "../components/Loader";
+import useEntryAuth from "../store/EntryData";
 
 function Home() {
     const navigate = useNavigate();
     const {user} = useAuth();
+    const {setData, setDeleteMethod} = useEntryAuth();
     const displayName = `, ${user.username}`;
     const userID = user._id;
     const [entries, setEntries] = useState([]);
@@ -45,12 +46,20 @@ function Home() {
     const noEntryHeader = <h1 className="mb-0">You Have Not Made Any Entries</h1>;
     const entryHeader = <h1 className="text-5xl mb-1">Past Entries</h1>;
 
+    useEffect(()=>{
+        if(!isClicked) return;
+        setData(currEntry);
+        setClickEntry(false);
+        navigate("/viewEntry");
+    }, [isClicked]);
+
     return <>
         {isLoading ?<Loader /> : 
-            (<> {(isClicked)? (<FullDailyEntry data={currEntry} deleteMethod={setClickEntry}/>) : 
-                (<> <h1 className="mb-5">Welcome To Home Page{displayName}</h1>{newEntryButton}{(entries.length==0) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>}
-                </> )}
-            </>) }
+            (<>
+                <h1 className="mb-5">Welcome To Home Page{displayName}</h1>
+                {newEntryButton} 
+                {(entries.length==0) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>}
+            </> )}
     </>
 }   
 

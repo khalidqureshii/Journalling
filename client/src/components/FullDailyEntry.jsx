@@ -18,6 +18,7 @@ function FullDailyEntry(props) {
     const q6 = "How many people smiled because of you?";
 
     const navigate = useNavigate();
+
     async function deleteEntry() {
         const entryID = props.data._id;
         const output = fetch(LINK + "api/entries/deleteEntry", {
@@ -28,12 +29,6 @@ function FullDailyEntry(props) {
             body: JSON.stringify({entryID})
         });
         toast("Entry Deleted Succesfully");
-        props.deleteMethod(false);
-        navigate("/");
-    }
-
-    async function goBack() {
-        props.deleteMethod(false);
         navigate("/");
     }
 
@@ -48,7 +43,7 @@ function FullDailyEntry(props) {
         </div> :
             <> 
                 <div className="flex flex-row justify-between">
-                    <button className="my-3 w-24 mx-2" onClick={goBack}>Back</button>
+                    <button className="my-3 w-24 mx-2" onClick={()=>{navigate("/")}}>Back</button>
                     <h1 className="mb-4 text-left">{formattedDate}</h1>
                     <button className="w-24 my-3 bg-red-500" onClick={()=>{clickDelete(true)}}>Delete</button>
                 </div>
