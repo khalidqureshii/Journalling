@@ -7,6 +7,7 @@ import NewEntry from './pages/NewEntry';
 import Home from './pages/Home';
 import ViewEntries from './pages/ViewEntries';
 import Header from './components/Header.jsx';
+import PreHome from './pages/PreHome.jsx';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<PreHome />} />
+          <Route path='/home' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/logout' element={<Logout />} />

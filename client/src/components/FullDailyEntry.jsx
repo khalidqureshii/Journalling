@@ -29,12 +29,12 @@ function FullDailyEntry(props) {
         });
         toast("Entry Deleted Succesfully");
         props.deleteMethod(false);
-        navigate("/viewEntries");
+        navigate("/");
     }
 
     async function goBack() {
         props.deleteMethod(false);
-        navigate("/viewEntries");
+        navigate("/");
     }
 
     const [clickedDelete, clickDelete] = useState(false);
@@ -46,17 +46,18 @@ function FullDailyEntry(props) {
             <button className="w-24 mx-2" onClick={deleteEntry}>Yes</button>
             <button className="w-24 mx-2" onClick={()=>{clickDelete(false)}}>Cancel</button>
         </div> :
-            <>
-                <h1 className="mb-4 text-left">{formattedDate}</h1>
+            <> 
+                <div className="flex flex-row justify-between">
+                    <button className="my-3 w-24 mx-2" onClick={goBack}>Back</button>
+                    <h1 className="mb-4 text-left">{formattedDate}</h1>
+                    <button className="w-24 my-3 bg-red-500" onClick={()=>{clickDelete(true)}}>Delete</button>
+                </div>
                 <Prompt question={q1} answer={props.data.challenge} />
                 <Prompt question={q2} answer={props.data.solving} />
                 <Prompt question={q3} answer={props.data.moments} />
                 <Prompt question={q4} answer={props.data.gratitude} />
                 <Prompt question={q5} answer={props.data.smile} />
                 <Prompt question={q6} answer={props.data.madeSmile} />
-                <button className="mt-3 w-24 mx-2" onClick={goBack}>Back</button>
-                <button className="w-24 mx-2 bg-red-500" onClick={()=>{clickDelete(true)}}>Delete</button>
-                <button className="w-24 mx-2" onClick={()=>navigate("/logout")}>Logout</button>
             </>}
         </>
     );
