@@ -49,12 +49,14 @@ function FullDailyEntry(props) {
                     <h1 className="text-4xl mt-4 text-left">{formattedDate}</h1>
                     <button className="w-24 my-3 mr-7 customButton bg-red-500" onClick={()=>{clickDelete(true)}}>Delete</button>
                 </div>
-                <Prompt question={q1} answer={props.data.challenge} />
-                <Prompt question={q2} answer={props.data.solving} />
-                <Prompt question={q3} answer={props.data.moments} />
-                <Prompt question={q4} answer={props.data.gratitude} />
-                <Prompt question={q5} answer={props.data.smile} />
-                <Prompt question={q6} answer={props.data.madeSmile} />
+                <div className="flex flex-col justify-center items-center">
+                    <Prompt question={q1} answer={props.data.challenge} />
+                    <Prompt question={q2} answer={props.data.solving} />
+                    <Prompt question={q3} answer={props.data.moments} />
+                    <Prompt question={q4} answer={props.data.gratitude} />
+                    <Prompt question={q5} answer={props.data.smile} />
+                    <Prompt question={q6} answer={props.data.madeSmile} />
+                </div>
             </>}
         </>
     );

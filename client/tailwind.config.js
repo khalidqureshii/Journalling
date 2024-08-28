@@ -5,6 +5,9 @@ export default {
     extend: {
       height: {
         '90vh':'90vh',
+      },
+      width: {
+        '90vw':'90vw',
       }
     },
   },
