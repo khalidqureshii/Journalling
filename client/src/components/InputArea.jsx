@@ -2,7 +2,7 @@ import React from "react";
 
 function InputArea(props) {
     return (
-        <div className="max-w-full overflow-hidden my-7 mx-7">
+        <div className="max-w-full my-7 mx-7">
             <label className="text-2xl text-[#ffffffde]" htmlFor={props.name}>{props.text}</label><br />
             <textarea
                 onChange={props.changeFunction}
