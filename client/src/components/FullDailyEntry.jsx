@@ -44,10 +44,10 @@ function FullDailyEntry(props) {
             </div>
         </div> :
             <> 
-                <div className="flex flex-row justify-between mt-6">
-                    <button className="my-3 ml-7 w-24 mx-2 customButton" onClick={()=>{navigate("/")}}>Back</button>
-                    <h1 className="text-4xl mt-4 text-left">{formattedDate}</h1>
-                    <button className="w-24 my-3 mr-7 customButton bg-red-500" onClick={()=>{clickDelete(true)}}>Delete</button>
+                <div className="flex flex-row justify-center mt-6">
+                    <button className="my-3 ml-7 w-24 mr-7 customButton" onClick={()=>{navigate("/")}}>Back</button>
+                    <h1 className="text-4xl mt-3 text-left">{formattedDate}</h1>
+                    <button className="w-24 my-3 ml-7 customButton bg-red-500" onClick={()=>{clickDelete(true)}}>Delete</button>
                 </div>
                 <div className="flex flex-col justify-center items-center">
                     <Prompt question={q1} answer={props.data.challenge} />
