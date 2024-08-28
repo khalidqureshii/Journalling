@@ -51,7 +51,13 @@ const login = async (req, res)=> {
 const register = async (req, res)=> {
     try{
         const {username, phone, email, password} = req.body;
-        const userExists = await User.findOne({ $or: [username, phone, email] });
+        const userExists = await User.findOne({
+            $or: [
+                { username: username },
+                { phone: phone },
+                { email: email }
+            ]
+        });
         if (userExists) {
             return res.status(400).json({msg: "User Already Exists"});
         }
@@ -61,7 +67,7 @@ const register = async (req, res)=> {
     catch (err) {
         const status = 404;
         const message = "User Already Exists";
-        const extraDetails = err.errors[0].message.toString();
+        const extraDetails = "Nothing";
         const errorDetails = {
             message,
             status,
