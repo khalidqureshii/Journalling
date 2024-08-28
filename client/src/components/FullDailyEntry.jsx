@@ -3,6 +3,8 @@ import Prompt from "./Prompt";
 import LINK from "../store/Link";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
+import { IoMdArrowBack } from "react-icons/io";
+import { MdDeleteForever } from "react-icons/md";
 
 function FullDailyEntry(props) {
     const dateStr = props.data.date;
@@ -45,9 +47,9 @@ function FullDailyEntry(props) {
         </div> :
             <> 
                 <div className="flex flex-row justify-center mt-6">
-                    <button className="my-3 ml-7 w-24 mr-7 customButton" onClick={()=>{navigate("/")}}>Back</button>
+                    <button className="my-3 mr-7 text-[#ffffffde]" onClick={()=>{navigate("/")}}><IoMdArrowBack size='2.5rem'/></button>
                     <h1 className="text-4xl mt-3 text-left">{formattedDate}</h1>
-                    <button className="w-24 my-3 ml-7 customButton bg-red-500" onClick={()=>{clickDelete(true)}}>Delete</button>
+                    <button className="my-3 ml-7 text-[#ffffffde]" onClick={()=>{clickDelete(true)}}><MdDeleteForever size='2.5rem' /></button>
                 </div>
                 <div className="flex flex-col justify-center items-center">
                     <Prompt question={q1} answer={props.data.challenge} />
