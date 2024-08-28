@@ -18,6 +18,7 @@ function FullDailyEntry(props) {
     const q6 = "How many people smiled because of you?";
 
     const navigate = useNavigate();
+
     async function deleteEntry() {
         const entryID = props.data._id;
         const output = fetch(LINK + "api/entries/deleteEntry", {
@@ -28,35 +29,34 @@ function FullDailyEntry(props) {
             body: JSON.stringify({entryID})
         });
         toast("Entry Deleted Succesfully");
-        props.deleteMethod(false);
-        navigate("/viewEntries");
-    }
-
-    async function goBack() {
-        props.deleteMethod(false);
-        navigate("/viewEntries");
+        navigate("/");
     }
 
     const [clickedDelete, clickDelete] = useState(false);
 
     return (<>
         { clickedDelete ? 
-        <div>
-            <h1>Do You Really Want to Delete this Entry?</h1><br />
-            <button className="w-24 mx-2" onClick={deleteEntry}>Yes</button>
-            <button className="w-24 mx-2" onClick={()=>{clickDelete(false)}}>Cancel</button>
+        <div className="flex flex-col justify-center items-center w-full h-90vh">
+            <h1 className="text-5xl">Do You Really Want to Delete this Entry?</h1><br />
+            <div>
+                <button className="w-32 h-12 mx-2 customButton" onClick={deleteEntry}><h6 className="text-xl">Yes</h6></button>
+                <button className="w-32 h-12 mx-2 customButton" onClick={()=>{clickDelete(false)}}><h6 className="text-xl">Cancel</h6></button>
+            </div>
         </div> :
-            <>
-                <h1 className="mb-4 text-left">{formattedDate}</h1>
-                <Prompt question={q1} answer={props.data.challenge} />
-                <Prompt question={q2} answer={props.data.solving} />
-                <Prompt question={q3} answer={props.data.moments} />
-                <Prompt question={q4} answer={props.data.gratitude} />
-                <Prompt question={q5} answer={props.data.smile} />
-                <Prompt question={q6} answer={props.data.madeSmile} />
-                <button className="mt-3 w-24 mx-2" onClick={goBack}>Back</button>
-                <button className="w-24 mx-2 bg-red-500" onClick={()=>{clickDelete(true)}}>Delete</button>
-                <button className="w-24 mx-2" onClick={()=>navigate("/logout")}>Logout</button>
+            <> 
+                <div className="flex flex-row justify-center mt-6">
+                    <button className="my-3 ml-7 w-24 mr-7 customButton" onClick={()=>{navigate("/")}}>Back</button>
+                    <h1 className="text-4xl mt-3 text-left">{formattedDate}</h1>
+                    <button className="w-24 my-3 ml-7 customButton bg-red-500" onClick={()=>{clickDelete(true)}}>Delete</button>
+                </div>
+                <div className="flex flex-col justify-center items-center">
+                    <Prompt question={q1} answer={props.data.challenge} />
+                    <Prompt question={q2} answer={props.data.solving} />
+                    <Prompt question={q3} answer={props.data.moments} />
+                    <Prompt question={q4} answer={props.data.gratitude} />
+                    <Prompt question={q5} answer={props.data.smile} />
+                    <Prompt question={q6} answer={props.data.madeSmile} />
+                </div>
             </>}
         </>
     );

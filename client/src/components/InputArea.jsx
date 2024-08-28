@@ -2,8 +2,8 @@ import React from "react";
 
 function InputArea(props) {
     return (
-        <div className="max-w-full overflow-hidden my-7">
-            <label className="text-xl" htmlFor={props.name}>{props.text}</label><br />
+        <div className="max-w-full my-7 mx-7">
+            <label className="text-2xl text-[#ffffffde]" htmlFor={props.name}>{props.text}</label><br />
             <textarea
                 onChange={props.changeFunction}
                 id={props.name}
@@ -14,7 +14,7 @@ function InputArea(props) {
                 cols={props.cols || 180} 
                 autoComplete="off"
                 required
-                className="w-full max-w-full rounded-3xl px-4 py-2 text-xl mt-1.5"
+                className="w-full rounded-3xl px-5 py-3 text-xl mt-1.5 bg-[#2d2d2d] text-[#ffffffde]"
             />
             <br />
         </div>

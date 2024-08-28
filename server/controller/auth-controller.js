@@ -67,7 +67,7 @@ const register = async (req, res)=> {
     catch (err) {
         const status = 404;
         const message = "User Already Exists";
-        const extraDetails = err.errors[0].message.toString();
+        const extraDetails = "Nothing";
         const errorDetails = {
             message,
             status,

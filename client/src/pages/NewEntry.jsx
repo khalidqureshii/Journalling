@@ -4,7 +4,7 @@ import useAuth from "../store/Auth";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import LINK from "../store/Link";
-import HashLoader from "react-spinners/HashLoader";
+import Loader from "../components/Loader";
 
 // const {userID, challenge, solving, moments, gratitude, smile, madeSmile} = req.body;
 function newEntry() {
@@ -53,20 +53,19 @@ function newEntry() {
         }
     }
 
-    const backButton = <><br /><button onClick={()=>navigate("/")}>Back</button><br /></>;
+    return <> {isLoading ? <Loader /> : <>
+        <div className="flex flex-col items-center justify-center">
+            <div className="w-full max-w-7xl text-center">
+                <h1 className="mb-8 text-5xl mt-8">Welcome To New Entry Page</h1>
+                <InputArea changeFunction={updateUser} name="challenge" text={q1} placeholder="Enter Text Here..." />
+                <InputArea changeFunction={updateUser} name="solving" text={q2} placeholder="Enter Text Here..." />
+                <InputArea changeFunction={updateUser} name="moments" text={q3} placeholder="Enter Text Here..." />
+                <InputArea changeFunction={updateUser} name="gratitude" text={q4} placeholder="Enter Text Here..." />
+                <InputArea changeFunction={updateUser} name="smile" text={q5} placeholder="Enter Text Here..." />
+                <InputArea changeFunction={updateUser} name="madeSmile" text={q6} placeholder="Enter Text Here..." />
 
-    return <> {isLoading ? <HashLoader color="#ffffff" /> : <>
-        <h1 className="mb-6">Welcome To New Entry Page</h1>
-        <InputArea changeFunction={updateUser} name="challenge" text={q1} placeholder="Enter Text Here..." />
-        <InputArea changeFunction={updateUser} name="solving" text={q2} placeholder="Enter Text Here..." />
-        <InputArea changeFunction={updateUser} name="moments" text={q3} placeholder="Enter Text Here..." />
-        <InputArea changeFunction={updateUser} name="gratitude" text={q4} placeholder="Enter Text Here..." />
-        <InputArea changeFunction={updateUser} name="smile" text={q5} placeholder="Enter Text Here..." />
-        <InputArea changeFunction={updateUser} name="madeSmile" text={q6} placeholder="Enter Text Here..." />
-
-        <div>
-            <button className="w-24 mr-2" onClick={()=>navigate("/")}>Back</button>
-            <button type="submit" className="w-24 ml-2" onClick={storeEntry}>Submit</button>
+                <button type="submit" className="w-32 h-12 ml-2 customButton mb-10" onClick={storeEntry}><h6 className="text-xl">Submit</h6></button>
+            </div>
         </div>
     </>}
     </>
