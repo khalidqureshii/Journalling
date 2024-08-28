@@ -60,7 +60,7 @@ function newEntry() {
     return <> {isLoading ? <Loader /> : <>
         <div className="flex flex-col items-center justify-center">
             <div className="w-full max-w-7xl text-center">
-            <h1 className="text-3xl md:text-4xl mt-3 text-left">{formattedDate}</h1>
+            <h1 className="text-3xl md:text-4xl mt-3 text-center">{formattedDate}</h1>
                 <InputArea changeFunction={updateUser} name="challenge" text={q1} placeholder="Enter Text Here..." />
                 <InputArea changeFunction={updateUser} name="solving" text={q2} placeholder="Enter Text Here..." />
                 <InputArea changeFunction={updateUser} name="moments" text={q3} placeholder="Enter Text Here..." />
