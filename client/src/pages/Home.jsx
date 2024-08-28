@@ -23,6 +23,8 @@ function Home() {
     function createCards(entry){
         return <EntryCard data={entry} date={entry.date} updateClick={setClickEntry} updateEntry={setCurrEntry}/>
     }
+
+    useEffect(()=>{setEntryFetched(false)}, [userID]);
     
     useEffect(()=>{
         async function fetchEntries() {
@@ -42,7 +44,7 @@ function Home() {
         }
         fetchEntries();
         
-    }, [userID, isClicked]);
+    }, [userID, isClicked, isEntryFetched]);
     
     
     useEffect(()=>{
