@@ -18,6 +18,9 @@ function PreHome() {
         if (isLoggedIn) {
             navigate("/home");
         }
+        else {
+          navigate("/login");
+        }
     }, [isLoggedIn]);
 
     return (

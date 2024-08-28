@@ -65,7 +65,7 @@ function Register() {
             <InputEntry changeFunction={updateUser} name="password" text="Password" placeholder="Enter Your Password" value={user.password} />
             <InputEntry changeFunction={updateUser} name="confirmPassword" text="Confirm Password" placeholder="Re-Enter Your Password" value={user.confirmPassword} />
             <button type="submit" className="w-32 h-12 customButton" onClick={storeData}>Submit</button>
-            {(!user.match) ? <h3>Passwords Do Not Match</h3> : null}
+            {(!user.match) ? <h3 className="mt-3 text-xl text-red-400">Passwords Do Not Match</h3> : null}
 
             <h2 className="text-3xl mt-7 mb-4">Already have an Account?</h2>
             <button className="customButton h-12 w-32" onClick={()=>navigate("/login")}>Login</button>
