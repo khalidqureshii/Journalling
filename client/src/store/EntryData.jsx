@@ -1,14 +1,19 @@
 import React from "react";
-import { useState, useContext, createContext } from "react";
+import { useState, useContext, createContext, useEffect } from "react";
 export const EntryContext = createContext();
 
 
 export const EntryProvider = ({children}) => {
-    const [data, setData] = useState();
+    const [data, setData] = useState(JSON.parse(localStorage.getItem("entryData")));
+    
+    useEffect(()=>{
+        localStorage.setItem("entryData", JSON.stringify(data));
+    }, [data]);
     
     return (<EntryContext.Provider value={{data, setData}}>
         {children}
     </EntryContext.Provider>);
+
 };
 
 export const useEntryAuth = () => {
