@@ -38,14 +38,14 @@ function FullDailyEntry(props) {
 
     return (<>
         { clickedDelete ? 
-        <div className="flex flex-col justify-center items-center w-full h-90vh">
-            <h1 className="text-5xl">Do You Really Want to Delete this Entry?</h1><br />
+        <div className="mx-5"><div className="flex flex-col justify-center items-center w-full h-90vh">
+            <h1 className="text-5xl text-center">Do You Really Want to Delete this Entry?</h1><br />
             <div>
                 <button className="w-32 h-12 mx-2 customButton" onClick={()=>{clickDelete(false)}}><h6 className="text-xl">Cancel</h6></button>
                 <button className="w-32 h-12 mx-2 customButton" onClick={deleteEntry}><h6 className="text-xl">Yes</h6></button>
             </div>
-        </div> :
-            <> 
+        </div></div> :
+            <div className="sm: mx-5"> 
                 <div className="flex flex-row justify-center mt-6">
                     <button className="my-3 mr-7 text-[#ffffffde]" onClick={()=>{navigate("/")}}><IoMdArrowBack size='2.5rem'/></button>
                     <h1 className="text-4xl mt-3 text-left">{formattedDate}</h1>
@@ -59,7 +59,7 @@ function FullDailyEntry(props) {
                     <Prompt question={q5} answer={props.data.smile} />
                     <Prompt question={q6} answer={props.data.madeSmile} />
                 </div>
-            </>}
+            </div>}
         </>
     );
 }

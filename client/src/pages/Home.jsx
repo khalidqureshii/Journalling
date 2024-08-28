@@ -59,11 +59,11 @@ function Home() {
     const newEntryButton = <button className="mb-10 mt-3 mx-2 w-40 customButton" onClick={()=>navigate("/newEntry")}>New Entry</button>;
     return <>
         {isLoading ?<Loader /> : 
-            (<div className="flex flex-col justify-center items-center w-full h-90vh">
-                <h1 className="mb-5 text-5xl">Welcome To Home Page{displayName}</h1>
+            (<div className="mx-5"><div className="flex flex-col justify-center items-center w-full h-90vh">
+                <h1 className="mb-5 text-4xl md:text-5xl text-center">Welcome To Home Page{displayName}</h1>
                 {newEntryButton} 
                 {(!isEntryFetched) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>}
-            </div> )}
+            </div></div> )}
     </>
 }   
 
