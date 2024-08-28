@@ -48,7 +48,7 @@ function FullDailyEntry(props) {
             <div className="sm: mx-5"> 
                 <div className="flex flex-row justify-center mt-6">
                     <button className="my-3 mr-7 text-[#ffffffde]" onClick={()=>{navigate("/")}}><IoMdArrowBack size='2.5rem'/></button>
-                    <h1 className="text-4xl mt-3 text-left">{formattedDate}</h1>
+                    <h1 className="text-3xl md:text-4xl mt-3 text-left">{formattedDate}</h1>
                     <button className="my-3 ml-7 text-[#ffffffde]" onClick={()=>{clickDelete(true)}}><MdDeleteForever size='2.5rem' /></button>
                 </div>
                 <div className="flex flex-col justify-center items-center">
