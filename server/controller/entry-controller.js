@@ -23,7 +23,8 @@ const newEntry = async (req, res) => {
 const getEntries = async (req, res) => {
     try {
         const {userID} = req.body;
-        const output = await JournalEntry.find({userID});
+        const reversedOutput = await JournalEntry.find({userID});
+        const output = reversedOutput.reverse();
         res.status(200).json({msg: "All Entries Returned", allEntries: output});
     }
     catch (err) {
