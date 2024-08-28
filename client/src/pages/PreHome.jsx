@@ -23,7 +23,6 @@ function PreHome() {
     return (
         <>
           <div className="flex flex-col justify-center items-center w-full h-90vh text-center">
-          {/* <div className="w-full h-90vh text-center m-auto"> */}
             <h1 className="text-5xl">
               Join Us in This Amazing Journey Towards Better Mental Health
             </h1>

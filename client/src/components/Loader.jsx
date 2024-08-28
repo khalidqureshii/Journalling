@@ -1,10 +1,10 @@
 import react from "react";
-import PulseLoader from "react-spinners/PulseLoader";
 import RotateLoader from "react-spinners/RotateLoader";
 
 function Loader() {
-    //return <PulseLoader color="#ffffff" margin={9} size={20} />
-    return <RotateLoader color="#ffffff" margin={12} size={25} />
+    const serverMessage = "The Server Can Take Upto 90 Seconds Due To Inactivity";
+    return <div className="w-full h-screen flex flex-col justify-center items-center"><RotateLoader color="#ffffff" margin={12} size={25} /><h2 className="text-2xl mb-2 mt-8">{serverMessage}</h2></div>;
+    
 }
 
 export default Loader;

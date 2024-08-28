@@ -55,9 +55,7 @@ function Register() {
         }
     }
 
-    const serverMessage = "The Server Can Take Upto 90 Seconds Due To Inactivity";
-
-    return <> {isLoading ? <div className="flex flex-col items-center"><Loader /><h2 className="text-2xl mb-2 mt-8">{serverMessage}</h2></div> : <>
+    return <> {isLoading ?  <Loader />: <>
         {currToken == null && (<>
         <div class="flex flex-col justify-center items-center text-center">
             <h1 className="text-5xl mt-10 mb-6">Welcome To Register Page</h1>
