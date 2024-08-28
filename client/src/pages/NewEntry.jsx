@@ -20,6 +20,10 @@ function newEntry() {
     const q5 = "Who made you smile the most today, and how did they do it?";
     const q6 = "How many people smiled because of you?";
 
+    const currDate = new Date();
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    const formattedDate = currDate.toLocaleDateString('en-US', options);
+
     function updateUser(event) {
         const { name, value } = event.target;
         setUserData(prevUser => { 
@@ -56,7 +60,7 @@ function newEntry() {
     return <> {isLoading ? <Loader /> : <>
         <div className="flex flex-col items-center justify-center">
             <div className="w-full max-w-7xl text-center">
-                <h1 className="mb-8 text-5xl mt-8">Welcome To New Entry Page</h1>
+            <h1 className="text-3xl md:text-4xl mt-3 text-left">{formattedDate}</h1>
                 <InputArea changeFunction={updateUser} name="challenge" text={q1} placeholder="Enter Text Here..." />
                 <InputArea changeFunction={updateUser} name="solving" text={q2} placeholder="Enter Text Here..." />
                 <InputArea changeFunction={updateUser} name="moments" text={q3} placeholder="Enter Text Here..." />

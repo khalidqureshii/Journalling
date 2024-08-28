@@ -60,7 +60,7 @@ function Home() {
     return <>
         {isLoading ?<Loader /> : 
             (<div className="mx-5"><div className="flex flex-col justify-center items-center w-full h-90vh">
-                <h1 className="mb-5 text-4xl md:text-5xl text-center">Welcome To Home Page{displayName}</h1>
+                <h1 className="mb-5 text-4xl md:text-5xl text-center">Welcome{displayName}</h1>
                 {newEntryButton} 
                 {(!isEntryFetched) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>}
             </div></div> )}
