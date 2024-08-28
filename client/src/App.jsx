@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Header from './components/Header.jsx';
 import PreHome from './pages/PreHome.jsx';
 import ViewEntry from './pages/ViewEntry.jsx';
+import Auth, { AuthProvider } from './store/Auth.jsx';
 
 function App() {
   return (

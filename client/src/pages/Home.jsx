@@ -16,6 +16,7 @@ function Home() {
     const [isLoading, setLoading] = useState(false);
     const [isClicked, setClickEntry] = useState(false);
     const [currEntry, setCurrEntry] = useState([]);
+    const [isEntryFetched, setEntryFetched] = useState(false);
 
 
     
@@ -36,6 +37,7 @@ function Home() {
             const data = await response.json();
             const allEntries = data.allEntries;
             setEntries(allEntries);
+            setEntryFetched(true);
             setLoading(false);
         }
         fetchEntries();
@@ -58,7 +60,7 @@ function Home() {
             (<div className="flex flex-col justify-center items-center w-full h-90vh">
                 <h1 className="mb-5 text-5xl">Welcome To Home Page{displayName}</h1>
                 {newEntryButton} 
-                {(entries.length==0) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>}
+                {(!isEntryFetched) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>}
             </div> )}
     </>
 }   

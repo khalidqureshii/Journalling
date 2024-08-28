@@ -2,6 +2,7 @@ import React from "react";
 import LINK from "../store/Link";
 export const AuthContext = React.createContext();
 import Loader from "../components/Loader";
+import DummyHeader from "../components/DummyHeader";
 
 export const AuthProvider = ({children}) => {
     const [isLoading, setLoading] = React.useState(false);
@@ -39,6 +40,7 @@ export const AuthProvider = ({children}) => {
         }
         catch (err) {
             console.log("Error Fetching User Data");
+            setLoading(false);
         }
     }
 
@@ -47,7 +49,7 @@ export const AuthProvider = ({children}) => {
     }, [token]);
     
     return (<AuthContext.Provider value={{isLoggedIn, storeTokenInLS, LogoutUser, user}}>
-        {isLoading? <Loader />:children}
+        {isLoading?<><DummyHeader /><Loader /></> :children}
     </AuthContext.Provider>);
 };
 
