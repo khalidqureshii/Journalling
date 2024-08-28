@@ -37,5 +37,4 @@ function PreHome() {
         </>
     );
 }
-
 export default PreHome;

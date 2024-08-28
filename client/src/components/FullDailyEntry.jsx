@@ -41,8 +41,8 @@ function FullDailyEntry(props) {
         <div className="flex flex-col justify-center items-center w-full h-90vh">
             <h1 className="text-5xl">Do You Really Want to Delete this Entry?</h1><br />
             <div>
-                <button className="w-32 h-12 mx-2 customButton" onClick={deleteEntry}><h6 className="text-xl">Yes</h6></button>
                 <button className="w-32 h-12 mx-2 customButton" onClick={()=>{clickDelete(false)}}><h6 className="text-xl">Cancel</h6></button>
+                <button className="w-32 h-12 mx-2 customButton" onClick={deleteEntry}><h6 className="text-xl">Yes</h6></button>
             </div>
         </div> :
             <> 
