@@ -62,7 +62,7 @@ function Home() {
             (<div className="mx-5"><div className="flex flex-col justify-center items-center w-full h-90vh">
                 <h1 className="mb-5 text-4xl md:text-5xl text-center">Welcome{displayName}</h1>
                 {newEntryButton} 
-                {(!isEntryFetched) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>}
+                {(!isEntryFetched || entries.length==0) ? noEntryHeader : <>{entryHeader}{entries.map(createCards)}</>}
             </div></div> )}
     </>
 }   
