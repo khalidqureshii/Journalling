@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import LINK from "../store/Link";
 import Loader from "../components/Loader";
+import InputEntryPassword from "../components/InputEntryPassword"
 
 function Login() {
     const navigate = useNavigate();
@@ -59,7 +60,7 @@ function Login() {
             {(currToken == null) && (<>
             <h1 className="mb-6 text-5xl text-center">Welcome To Login Page</h1>
             <InputEntry changeFunction={updateUser} name="email" text="Email" placeholder="Enter Your Email" />
-            <InputEntry changeFunction={updateUser} name="password" text="Password" placeholder="Enter Your Password" />
+            <InputEntryPassword changeFunction={updateUser} name="password" text="Password" placeholder="Enter Your Password" />
             <button className="customButton" type="submit" onClick={storeData}>Submit</button>
 
             <h2 className="text-2xl mb-4 mt-8">Don't have an Account?</h2>
