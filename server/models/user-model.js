@@ -52,8 +52,14 @@ userSchema.methods.generateToken = async function() {
             }
         );
     }
-    catch(error) {
-        console.log(error);
+    catch (err) {
+        const status = 400;
+        const message = "Error Generating Token";
+        const errorDetails = {
+            message,
+            status
+        };
+        next(errorDetails);
     }
 };
 
@@ -62,8 +68,14 @@ async function hashPassword(input_password) {
         const saltRounds = await bcrypt.genSalt(10);
         return await bcrypt.hash(input_password, saltRounds);
     }
-    catch(error) {
-        next(error);
+    catch (err) {
+        const status = 400;
+        const message = "Error Hashing Password";
+        const errorDetails = {
+            message,
+            status
+        };
+        next(errorDetails);
     }
 }
 
